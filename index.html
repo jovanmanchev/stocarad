@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
+        #contactLink{
+            margin-top: 10px;
+        }
         body {
             font-family: Arial, sans-serif;
         }
@@ -15,50 +18,65 @@
             padding: 50px;
         }
         .footer {
-            background: #f8f9fa;
-            padding: 20px 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
-        .social-icons {
-            align-self: flex-start; /* Align to the left */
-            display: flex;
-            margin-bottom: 10px;
-        }
-        .social-icons a {
-            margin-right: 15px;
-            color: #000;
-            font-size: 1.5rem;
-            text-decoration: none;
-            position: relative;
-            top: 130px;
-          
-        }
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        
-        .social-icons {
-            flex: 1;
-        }
-        
-        .footer-content {
-            flex: 2;
+            background-color: #f8f9fa;
+            padding: 20px 0;
             text-align: center;
         }
         
-        .contact-info {
-            flex: 1;
-            text-align: right;
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .contact-info p {
-            margin: 0;
+        .social-icons {
+            margin-bottom: 15px;
+            font-size: 2rem;
+           
         }
+        
+        .footer-content {
+            margin-bottom: 15px;
+            max-width: 90%;
+            margin: auto;
+        }
+        
+       
+        
+        .contact-link, .social-icons a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .contact-link:hover, .social-icons a:hover {
+            color: #007bff;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            .footer-content, .contact-info {
+                max-width: 30%;
+            }
+        
+            .social-icons {
+                margin-bottom: 20px;;
+            }
+        
+            .footer-content {
+                text-align: left;
+            }
+        
+            .contact-info {
+                text-align: right;
+                margin: auto;
+            }
+        }
+        
         html {
             scroll-behavior: smooth;
         }
@@ -95,9 +113,9 @@
     </nav>
 
    
-    <div class="container text-center my-5">
-        <h1>Stocar Sid - Kavadarci</h1>
-        <p>Driving Success, Delivering Excellence</p>
+    <div class="container text-center my-5 p-3">
+   <img src="./images/header.png" />
+       <br/>
         <a class="btn btn-dark" id="contactLink">Contact</a>
     </div>
 
@@ -116,7 +134,7 @@
             </div>
            
             <div class="col-md-6 column-right">
-                <img src="./images/main_content_logo.jpg" alt="Company Logo" class="img-fluid mb-4">
+                <img src="./images/main_content_logo.png" alt="Company Logo" class="img-fluid mb-4">
                 <h2>Our Vision</h2>
                 <p>We envision a future where transportation is not just about moving goods from point A to point B, but about creating value for our clients, our employees, and the communities we serve. We strive to be a trusted partner for businesses of all sizes, offering reliable, efficient, and sustainable transportation services that exceed expectations.</p>
                 <a href="./vision.html" class="btn btn-dark mb-4">Our Vision</a>
@@ -136,11 +154,14 @@
         <div class="footer-container">
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/stocar-sid/posts/?feedView=all" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61564061396588" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/stocarsid/" target="_blank"><i class="bi bi-instagram"></i></a>
+            </div>
             </div>
             <div class="footer-content">
                 <p>Welcome to the Stocar Sid - Kavadarci gallery, where you can get a closer look at our impressive fleet of trucks. We take pride in the quality and reliability of our vehicles, and we invite you to browse through our gallery to see them in action.</p>
                 <a href="./gallery.html" class="btn btn-dark mb-4">Gallery</a>
-                <p>&copy; 2024 Stocar Sid - Kavadarci</p>
+               
             </div>
             <div class="contact-info" id="contact">
                 <p>
@@ -153,7 +174,10 @@
                 </p>
             </div>
         </div>
+        <p>&copy; 2024 Stocar Sid - Kavadarci</p>
     </footer>
+    
+    
     
   
 
