@@ -9,31 +9,37 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-/* Maintain consistent height for all slides */
-/* Maintain consistent height for all slides */
+/* Stable height, no cropping */
 #fleetCarousel .carousel-item {
   height: 62vh;
   min-height: 320px;
-  background: #f5f5f5;       /* background for letterbox areas */
+  background: #f5f5f5;
   border-radius: .75rem;
   overflow: hidden;
+  /* IMPORTANT: do NOT set display:flex here */
 }
 
-@media (min-width: 768px) {
-  #fleetCarousel .carousel-item { height: 68vh; }
-}
-@media (min-width: 1200px) {
-  #fleetCarousel .carousel-item { height: 72vh; }
+@media (min-width: 768px) { #fleetCarousel .carousel-item { height: 68vh; } }
+@media (min-width: 1200px){ #fleetCarousel .carousel-item { height: 72vh; } }
+
+/* Flex wrapper INSIDE the slide */
+#fleetCarousel .fitbox {
+  height: 100%;
+  width: 100%;
+  display: flex;              /* safe here */
+  align-items: center;
+  justify-content: center;
 }
 
-/* 🟢 Key part */
-#fleetCarousel .carousel-item img {
-  display: block;
+/* Image: show full, no crop */
+#fleetCarousel .fitbox img {
   max-width: 100%;
   max-height: 100%;
-  margin: 0 auto;         /* center horizontally */
-  object-fit: contain;    /* keep full image */
+  width: auto;
+  height: auto;
+  object-fit: contain;
   object-position: center;
+  display: block;
   -webkit-user-drag: none;
   user-select: none;
 }
@@ -77,25 +83,35 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="./images/gallery/gallery_top_left.jpeg"
-               alt="Fleet on duty - top left" loading="lazy">
-        </div>
-        <div class="carousel-item">
-          <img src="./images/gallery/gallery_top_right.jpeg"
-               alt="Fleet operations - top right" loading="lazy">
-        </div>
-        <div class="carousel-item">
-          <img src="./images/gallery/gallery_bottom_left.jpeg"
-               alt="Logistics at work - bottom left" loading="lazy">
-        </div>
-        <div class="carousel-item">
-          <img src="./images/gallery/gallery_bottom_right.jpeg"
-               alt="On the road - bottom right" loading="lazy">
-        </div>
-        <div class="carousel-item">
-          <img src="./images/gallery/gallery_fifth_truck.jpg"
-               alt="Additional truck photo" loading="lazy">
-        </div>
+  <div class="fitbox">
+    <img src="./images/gallery/gallery_top_left.jpeg" alt="Fleet on duty - top left" loading="lazy">
+  </div>
+</div>
+
+<div class="carousel-item">
+  <div class="fitbox">
+    <img src="./images/gallery/gallery_top_right.jpeg" alt="Fleet operations - top right" loading="lazy">
+  </div>
+</div>
+
+<div class="carousel-item">
+  <div class="fitbox">
+    <img src="./images/gallery/gallery_bottom_left.jpeg" alt="Logistics at work - bottom left" loading="lazy">
+  </div>
+</div>
+
+<div class="carousel-item">
+  <div class="fitbox">
+    <img src="./images/gallery/gallery_bottom_right.jpeg" alt="On the road - bottom right" loading="lazy">
+  </div>
+</div>
+
+<div class="carousel-item">
+  <div class="fitbox">
+    <img src="./images/gallery/gallery_fifth_truck.jpg" alt="Additional truck photo" loading="lazy">
+  </div>
+</div>
+
       </div>
 
       <a class="carousel-control-prev" href="#fleetCarousel" role="button" data-slide="prev" aria-label="Previous slide">
@@ -126,5 +142,15 @@
       keyboard: true
     });
   </script>
+  <script>
+  (function () {
+    function setVh() {
+      var vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', vh + 'px');
+    }
+    setVh();
+    window.addEventListener('resize', setVh);
+  })();
+</script>
 </body>
 </html>
