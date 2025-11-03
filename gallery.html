@@ -9,38 +9,37 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-  /* Set a stable viewport for all slides */
-  #fleetCarousel .carousel-item {
-    height: 62vh;                   /* consistent height on mobile */
-    min-height: 320px;              /* safety for very small screens */
-    position: relative;
-    background: #f5f5f5;            /* avoids flashes while loading */
-    border-radius: .75rem;
-    overflow: hidden;
-  }
+/* Maintain consistent height for all slides */
+/* Maintain consistent height for all slides */
+#fleetCarousel .carousel-item {
+  height: 62vh;
+  min-height: 320px;
+  background: #f5f5f5;       /* background for letterbox areas */
+  border-radius: .75rem;
+  overflow: hidden;
+}
 
-  @media (min-width: 768px) {
-    #fleetCarousel .carousel-item { height: 68vh; }
-  }
-  @media (min-width: 1200px) {
-    #fleetCarousel .carousel-item { height: 72vh; }
-  }
+@media (min-width: 768px) {
+  #fleetCarousel .carousel-item { height: 68vh; }
+}
+@media (min-width: 1200px) {
+  #fleetCarousel .carousel-item { height: 72vh; }
+}
 
-  /* Make each slide image fill the viewport and crop evenly */
-  #fleetCarousel .carousel-item > img {
-    position: absolute;
-    inset: 0;               /* top:0 right:0 bottom:0 left:0 */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;      /* prevents layout jump between images */
-    object-position: center;
-    -webkit-user-drag: none;
-    user-select: none;
-  }
+/* 🟢 Key part */
+#fleetCarousel .carousel-item img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;         /* center horizontally */
+  object-fit: contain;    /* keep full image */
+  object-position: center;
+  -webkit-user-drag: none;
+  user-select: none;
+}
 
-  /* Optional: smoother indicator look */
-  #fleetCarousel .carousel-indicators li { background: rgba(0,0,0,.35); }
-  #fleetCarousel .carousel-indicators .active { background: rgba(0,0,0,.85); }
+
+
 </style>
 
 </head>
